@@ -11,11 +11,14 @@ function photographerTemplate(data) {
         h2.textContent = name;
         const firstP = document.createElement( 'p' )
         firstP.textContent = `${city}, ${country}`
+        firstP.classList.add("localisation")
         const secondP = document.createElement( 'p' )
         secondP.textContent = tagline
+        secondP.classList.add("tagline")
         const thirdP = document.createElement( 'p' )
         thirdP.textContent = `${price}€/jour`
-        
+        thirdP.classList.add("price")
+
         article.appendChild(img);
         article.appendChild(h2);
         article.appendChild(firstP);
