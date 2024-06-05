@@ -32,12 +32,14 @@ h1 {
     margin-bottom: 100px;
 }
 
-.photographer_section article {
+.photographer_section article, .photographer_section a {
     justify-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-decoration: none;
+    color: black;
 }
 
 .photographer_section article h2 {
