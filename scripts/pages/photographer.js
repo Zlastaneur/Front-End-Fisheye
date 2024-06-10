@@ -1,38 +1,27 @@
-/*async function getPhotographersById() {
-    const response = await fetch("./photographers.json")
-    const data = await response.json()
-    console.log(data)
-    
-    let id = new URL(window.location.href).searchParams.get("id");
-    console.log(id)
+class ProfilePage {
+    constructor() {
+        const id = new URL(window.location.href).searchParams.get("id");
+        this.id = parseInt(id);
+        console.log(this.id)
 
-    const reponse = data.photographers.find((f) => f.id == id)
-    console.log(reponse)
-    injectHtml(reponse)
-    return reponse
-} 
+        this.apiData = new ApiData("./photographers.json")
 
-const object = getPhotographersById()
-console.log(object)
-console.log(getPhotographersById())
-getPhotographersById()
-injectHtml()
+        this.headerSection = document.querySelector(".photograph-header")
+    }
 
-function injectHtml(object){
-    console.log(object)
-    
-    const banner = document.querySelector(".photograph-header")
-    banner.insertAdjacentHTML("afterbegin", `
-        <h1 class="name"></h1>
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-    `)
-}*/
+    async main(){
+        const photographerById = await this.apiData.getDataById(this.id)
+        console.log(photographerById)
 
-async function getPhotographers() {
+        const Template = new ProfileHeader(photographerById)
+        this.headerSection.append(Template.createProfileHeader())
 
-    const response = await fetch("./photographers.json")
-    const photographers = await response.json()
-    console.log(photographers)
+        /*this.headerSection.appendChild(Template.createFirstPart())
+        this.headerSection.appendChild(Template.createSecondPart())
+        this.headerSection.appendChild(Template.createThirdPart())*/
 
-    return photographers
+    }
 }
+    
+const profilePage = new ProfilePage()
+profilePage.main()
