@@ -1,5 +1,5 @@
-async function getPhotographersById() {
-    const response = await fetch("../../data/photographers.json")
+/*async function getPhotographersById() {
+    const response = await fetch("./photographers.json")
     const data = await response.json()
     console.log(data)
     
@@ -25,7 +25,14 @@ function injectHtml(object){
     banner.insertAdjacentHTML("afterbegin", `
         <h1 class="name"></h1>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        
-        
     `)
+}*/
+
+async function getPhotographers() {
+
+    const response = await fetch("./photographers.json")
+    const photographers = await response.json()
+    console.log(photographers)
+
+    return photographers
 }

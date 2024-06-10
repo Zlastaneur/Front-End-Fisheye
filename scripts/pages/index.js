@@ -1,6 +1,6 @@
-    async function getPhotographers() {
+  /*async function getPhotographers() {
 
-        const response = await fetch("../../data/photographers.json")
+        const response = await fetch("./photographers.json")
         const photographers = await response.json()
         console.log(photographers)
 
@@ -23,5 +23,23 @@
         displayData(photographers);
     }
     
-    init();
+    init();*/
+
+class Homepage {
+    constructor() {
+        this.photographersSection = document.querySelector(".photographer_section")
+        this.apiData = new ApiData("./photographers.json")
+    }
+
+    async main(){
+        const allPhotographers = await this.apiData.getAllData()
+
+        allPhotographers.forEach(photographer => {
+            const Template = new PhotographerCard(photographer)
+            this.photographersSection.appendChild(Template.createPhotographerCard())
+        });
+    }
+}
     
+const homepage = new Homepage()
+homepage.main()

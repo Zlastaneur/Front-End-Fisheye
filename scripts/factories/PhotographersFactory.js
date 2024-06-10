@@ -1,0 +1,3 @@
+/*class PhotographersFactory{
+    constructor(data)
+}*/
