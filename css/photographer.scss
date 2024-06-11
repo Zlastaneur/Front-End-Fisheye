@@ -13,21 +13,44 @@
 .wrapper{
     display: flex;
     justify-content: space-between;
-    padding: 40px;
+    padding: 40px 80px;
 }
 
 .profile_info{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     padding: 0;
+    
     .name {
-        font-size: 45px;
+        font-size: 60px;
+        color: $secondary-color;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    .localisation {
+        color: $primary-color;
+        font-size: 1.2em;
+        font-weight: 400;
+        margin: 5px 0 20px 0;
+    }
+
+    .tagline {
+        color: $tertiary-color;
+        margin: 0;
     }
 }
 
 .btn{
     display: flex;
     align-items: center;
+}
+
+.profile_picture {
+    .picture{
+        box-shadow: $shadow;;
+    }
 }
 
 .contact_button {

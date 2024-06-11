@@ -48,6 +48,7 @@ h1 {
   width: 200px;
   border-radius: 50%;
   object-fit: cover;
+  box-shadow: 0rem 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
 }
 .photographer_section .localisation {
   margin: 0;
@@ -113,6 +114,7 @@ h1 {
   width: 200px;
   border-radius: 50%;
   object-fit: cover;
+  box-shadow: 0rem 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
 }
 .photographer_section .localisation {
   margin: 0;
@@ -141,21 +143,39 @@ h1 {
 .wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 40px;
+  padding: 40px 80px;
 }
 
 .profile_info {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 0;
 }
 .profile_info .name {
-  font-size: 45px;
+  font-size: 60px;
+  color: #D3573C;
+  font-weight: 400;
+  margin: 0;
+}
+.profile_info .localisation {
+  color: #901c1c;
+  font-size: 1.2em;
+  font-weight: 400;
+  margin: 5px 0 20px 0;
+}
+.profile_info .tagline {
+  color: #525252;
+  margin: 0;
 }
 
 .btn {
   display: flex;
   align-items: center;
+}
+
+.profile_picture .picture {
+  box-shadow: 0rem 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
 }
 
 .contact_button {

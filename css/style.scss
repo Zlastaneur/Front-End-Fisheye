@@ -1,6 +1,7 @@
 $primary-color: #901c1c;
 $secondary-color: #D3573C;
 $tertiary-color: #525252;
+$shadow: 0rem 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
 
 body {
     font-family: "DM Sans", sans-serif;
@@ -55,6 +56,7 @@ h1 {
         width: 200px;
         border-radius: 50%;
         object-fit: cover;
+        box-shadow: $shadow;
     }
 
     .localisation{
