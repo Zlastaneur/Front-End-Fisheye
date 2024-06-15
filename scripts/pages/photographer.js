@@ -6,22 +6,27 @@ class ProfilePage {
 
         this.apiData = new ApiData("./photographers.json")
 
-        this.headerSection = document.querySelector(".photograph-header")
+        this.headerSection = document.querySelector(".photographer-header")
+        this.mediaSection = document.querySelector(".photographer-media")
     }
 
     async main(){
-        const photographerById = await this.apiData.getDataById(this.id)
+        const photographerById = await this.apiData.getPhotographerById(this.id)
         console.log(photographerById)
 
-        const Template = new ProfileHeader(photographerById)
-        this.headerSection.append(Template.createProfileHeader())
+        const headerTemplate = new ProfileHeader(photographerById)
+        this.headerSection.append(headerTemplate.createProfileHeader())
 
-        /*this.headerSection.appendChild(Template.createFirstPart())
-        this.headerSection.appendChild(Template.createSecondPart())
-        this.headerSection.appendChild(Template.createThirdPart())*/
+        const allMedia = await this.apiData.getMediaById(this.id)
+        console.log(allMedia)
 
+        allMedia.forEach(media => {
+            const mediaTemplate = new MediaCard(media)
+            this.mediaSection.appendChild(mediaTemplate.createMediaCard())
+        });
     }
 }
-    
+
+
 const profilePage = new ProfilePage()
 profilePage.main()

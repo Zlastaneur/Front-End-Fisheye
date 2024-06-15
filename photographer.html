@@ -12,9 +12,19 @@
       <a href="index.html" alt="Fisheye Home page"><img src="assets/images/logo.png" class="logo" alt="fisheye logo"/></a>
     </header>
     <main id="main">
-      <section class="photograph-header">
+      <section class="photographer-header">
         <!--<button class="contact_button" onclick="displayModal()">Contactez-moi</button>-->
       </section>
+      <!-- <div class="orderBy">
+        <p>Trier par</p>
+        <button id="languagepickertrigger" aria-label="Bouton de filtre" aria-haspopup="listbox" aria-expanded="false">Pick a Language</button>
+          <ul id="options" role="listbox" aria-activedescendant="option1" aria-labelledby="languagepickertrigger" tabindex="-1">
+            <li id="option1" role="option" tabindex="-1" aria-selected="true">English</li>
+            <li id="option2" role="option" tabindex="-1">Spanish</li>
+            <li id="option3" role="option" tabindex="-1">German</li>
+          </ul>
+      </div> -->
+      <section class="photographer-media"></section>
     </main>
     <div id="contact_modal">
 			<div class="modal">
@@ -24,8 +34,20 @@
         </header>
 				<form>
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="firstname">Prénom</label>
+						<input type="text" id="firstname" name="firstname"/>
+					</div>
+          <div>
+						<label for="lastname">Nom</label>
+						<input type="text" id="lastname" name="lastname"/>
+					</div>
+          <div>
+						<label for="email">Email</label>
+						<input type="email" id="email" name="email"/>
+					</div>
+          <div>
+						<label for="message">Votre message</label>
+						<input type="text" id="message" name="message"/>
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
@@ -33,6 +55,7 @@
 		</div>
     <script src="scripts/api/Api.js"></script>
     <script src="scripts/templates/profileHeader.js"></script>
+    <script src="scripts/templates/mediaCard.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>

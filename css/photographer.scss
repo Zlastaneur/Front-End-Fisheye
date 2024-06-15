@@ -1,13 +1,10 @@
 @import "style.scss";
 
-#contact_modal {
-    display: none;
-}
-
-.photograph-header {
+// --------- Header Section --------- //
+.photographer-header {
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
+    margin: 20px 100px;
 }
 
 .wrapper{
@@ -73,6 +70,46 @@
     object-fit: cover;
 }
 
+// --------- Media Section --------- //
+.photographer-media{
+    margin: 40px 100px 60px 100px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.mediaCard{
+    width: 350px;
+    height: 350px;
+    margin: 40px 0;
+
+    img, video{
+        width: 350px;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    figcaption{
+        display: flex;
+        justify-content: space-between;
+
+        .title{
+            color: $primary-color;
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+
+        .likes{
+            margin: 5px 0;
+        }
+    }
+}
+// --------- Modal & Form --------- //
+#contact_modal {
+    display: none;
+}
+
 .modal {
     border-radius: 5px;
     background-color: $secondary-color;
@@ -83,20 +120,20 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
-}
 
-.modal header {
-    justify-content: space-between;
-    width: 100%;
-
-    img {
-        cursor: pointer;
-    }
+    header {
+        justify-content: space-between;
+        width: 100%;
     
-    h2 {
-        font-size: 64px;
-        font-weight: normal;
-        text-align: center;
+        img {
+            cursor: pointer;
+        }
+        
+        h2 {
+            font-size: 64px;
+            font-weight: normal;
+            text-align: center;
+        }
     }
 }
 

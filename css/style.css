@@ -1,6 +1,7 @@
 body {
   font-family: "DM Sans", sans-serif;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 1400px;
 }
 
 header {
@@ -66,7 +67,8 @@ h1 {
 
 body {
   font-family: "DM Sans", sans-serif;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 1400px;
 }
 
 header {
@@ -130,14 +132,10 @@ h1 {
   font-size: 13px;
 }
 
-#contact_modal {
-  display: none;
-}
-
-.photograph-header {
+.photographer-header {
   background-color: #FAFAFA;
   height: 300px;
-  margin: 0 100px;
+  margin: 20px 100px;
 }
 
 .wrapper {
@@ -198,6 +196,41 @@ h1 {
   object-fit: cover;
 }
 
+.photographer-media {
+  margin: 40px 100px 60px 100px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.mediaCard {
+  width: 350px;
+  height: 350px;
+  margin: 40px 0;
+}
+.mediaCard img, .mediaCard video {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.mediaCard figcaption {
+  display: flex;
+  justify-content: space-between;
+}
+.mediaCard figcaption .title {
+  color: #901c1c;
+  font-size: 1.2em;
+  margin: 5px 0;
+}
+.mediaCard figcaption .likes {
+  margin: 5px 0;
+}
+
+#contact_modal {
+  display: none;
+}
+
 .modal {
   border-radius: 5px;
   background-color: #D3573C;
@@ -209,7 +242,6 @@ h1 {
   padding: 35px;
   margin: auto;
 }
-
 .modal header {
   justify-content: space-between;
   width: 100%;

@@ -32,7 +32,7 @@ class Homepage {
     }
 
     async main(){
-        const allPhotographers = await this.apiData.getAllData()
+        const allPhotographers = await this.apiData.getAllPhotographers()
         console.log(allPhotographers)
 
         allPhotographers.forEach(photographer => {
@@ -41,6 +41,7 @@ class Homepage {
         });
     }
 }
-    
+
+
 const homepage = new Homepage()
 homepage.main()

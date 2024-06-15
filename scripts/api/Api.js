@@ -1,9 +1,9 @@
-class Api {
+class Api{
     constructor(url) {
         this._url = url
     }
 
-    async getAllPhotographers() {
+    async getAllPhotographersData(){
         try {
             const response = await fetch(this._url)
             const data = await response.json()
@@ -17,14 +17,26 @@ class Api {
         }   
     }
 
-    async getPhotographerById(id){
+    async getPhotographerDataById(id){
         try {
             const response = await fetch(this._url)
             const data = await response.json()
 
             const photographerID = data.photographers.find((photographer) => photographer.id === id)
             return photographerID
-        } catch (error) {
+        } catch(error) {
+            throw new Error("Fetching error ", error)
+        }
+    }
+
+    async getMediaDataById(id){
+        try {
+            const response = await fetch(this._url)
+            const data = await response.json()
+
+            const photographerMedia = data.media.filter((media) => media.photographerId === id)
+            return photographerMedia
+        } catch(error) {
             throw new Error("Fetching error ", error)
         }
     }
@@ -35,11 +47,15 @@ class ApiData extends Api{
         super(url)
     }
 
-    async getAllData(){
-        return await this.getAllPhotographers()
+    async getAllPhotographers(){
+        return await this.getAllPhotographersData()
     }
 
-    async getDataById(id){
-        return await this.getPhotographerById(id)
+    async getPhotographerById(id){
+        return await this.getPhotographerDataById(id)
+    }
+
+    async getMediaById(id){
+        return await this.getMediaDataById(id)
     }
 }
