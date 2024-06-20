@@ -1,24 +1,25 @@
 class Panel{
-    constructor(media){
+    constructor(photographer, media){
+        this._photographer = photographer
         this._media = media
     }
 
-    createMediaCard(){
-        const cardWrapper = document.createElement("figure")
-        cardWrapper.classList.add("mediaCard")
+    createPanel(){
+        const panelWrapper = document.createElement("div")
+        console.log(this._media)
+        let totalLikes = this._media.reduce(function(prev, cur){
+            return prev + cur.likes
+        }, 0)
+
+        panelWrapper.classList.add("panel_content")
         
-        const mediaCard = 
+        const panel = 
         `
-            ${this._media.image ? `<img src="assets/photographers/${this._media.photographerId}/${this._media.image}" alt=""></img>`
-            : `<video src="assets/photographers/${this._media.photographerId}/${this._media.video}" alt=""></video>`}
-            
-            <figcaption>
-                <p class="title"> ${this._media.title}</p>
-                <p class="likes">${this._media.likes} <i class="fa-solid fa-heart"></i></p>
-            </figcaption>
+            <p class="likes">${totalLikes} <i class="fa-solid fa-heart"></i></p>
+            <p class="price">${this._photographer.price}€ / jour</p>
         `
 
-        cardWrapper.innerHTML = mediaCard
-        return cardWrapper
+        panelWrapper.innerHTML = panel
+        return panelWrapper
     }
 }

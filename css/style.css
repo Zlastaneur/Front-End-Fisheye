@@ -163,54 +163,46 @@ h1 {
   height: 300px;
   margin: 20px 100px;
 }
-
-.wrapper {
+.photographer-header .wrapper {
   display: flex;
   justify-content: space-between;
   padding: 40px 80px;
 }
-
-.profile_info {
+.photographer-header .profile_info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0;
 }
-.profile_info .name {
+.photographer-header .profile_info .name {
   font-size: 60px;
   color: #D3573C;
   font-weight: 400;
   margin: 0;
 }
-.profile_info .localisation {
+.photographer-header .profile_info .localisation {
   color: #901c1c;
   font-size: 1.2em;
   font-weight: 400;
   margin: 5px 0 20px 0;
 }
-.profile_info .tagline {
+.photographer-header .profile_info .tagline {
   color: #525252;
   margin: 0;
 }
-
-.profile_btn {
+.photographer-header .profile_btn {
   display: flex;
   align-items: center;
 }
-
-.contactBtn {
+.photographer-header .profile_btn .contactBtn {
   padding: 11px;
   width: 170px;
   height: 70px;
   font-size: 1.2em;
   font-weight: bold;
 }
-
-.profile_picture .picture {
+.photographer-header .profile_picture img {
   box-shadow: 0rem 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
-}
-
-.picture {
   height: 200px;
   width: 200px;
   border-radius: 50%;
@@ -336,6 +328,31 @@ h1 {
 }
 .mediaCard figcaption .likes .fa-heart {
   color: #901c1c;
+}
+
+.panel {
+  position: fixed;
+  bottom: 0%;
+  right: 10%;
+  width: 300px;
+  height: 60px;
+  background-color: #D3573C;
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  align-items: center;
+}
+.panel_content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px 0 25px;
+  font-weight: bold;
+}
+.panel_content .likes {
+  margin: 0;
+}
+.panel_content .price {
+  margin: 0;
 }
 
 #contact_modal {

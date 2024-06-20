@@ -5,64 +5,61 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 20px 100px;
-}
 
-.wrapper{
-    display: flex;
-    justify-content: space-between;
-    padding: 40px 80px;
-}
+    .wrapper{
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 80px;
+    }
+        
+    .profile_info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
+        
+        .name {
+            font-size: 60px;
+            color: $secondary-color;
+            font-weight: 400;
+            margin: 0;
+        }
 
-.profile_info{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0;
-    
-    .name {
-        font-size: 60px;
-        color: $secondary-color;
-        font-weight: 400;
-        margin: 0;
+        .localisation {
+            color: $primary-color;
+            font-size: 1.2em;
+            font-weight: 400;
+            margin: 5px 0 20px 0;
+        }
+
+        .tagline {
+            color: $tertiary-color;
+            margin: 0;
+        }
+    }
+        
+    .profile_btn{
+        display: flex;
+        align-items: center;
+
+        .contactBtn{
+            padding: 11px;
+            width: 170px;
+            height: 70px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
     }
 
-    .localisation {
-        color: $primary-color;
-        font-size: 1.2em;
-        font-weight: 400;
-        margin: 5px 0 20px 0;
+    .profile_picture {
+        img{
+            box-shadow: $shadow;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
     }
-
-    .tagline {
-        color: $tertiary-color;
-        margin: 0;
-    }
-}
-
-.profile_btn{
-    display: flex;
-    align-items: center;
-}
-
-.contactBtn{
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-.profile_picture {
-    .picture{
-        box-shadow: $shadow;;
-    }
-}
-
-.picture {
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    object-fit: cover;
 }
 
 // --------- Filter --------- //
@@ -166,8 +163,6 @@
     }
 }
 
-
-
 // --------- Media Section --------- //
 .photographer-media{
     margin: 40px 100px 60px 100px;
@@ -209,7 +204,36 @@
     }
 }
 
-// --------- Modal & Form --------- //
+// --------- Bottom Panel --------- //
+.panel{
+    position: fixed;
+    bottom: 0%;
+    right: 10%;
+    width: 300px;
+    height: 60px;
+    background-color: $secondary-color;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    align-items: center;
+
+    &_content{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 25px 0 25px;
+        font-weight: bold;
+
+        .likes{
+            margin: 0;
+        }
+
+        .price{
+            margin: 0;
+        }
+    }
+}
+
+// --------- Form modal --------- //
 #contact_modal {
     display: none;
     position: fixed;
