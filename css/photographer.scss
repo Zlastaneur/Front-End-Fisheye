@@ -39,9 +39,17 @@
     }
 }
 
-.btn{
+.profile_btn{
     display: flex;
     align-items: center;
+}
+
+.contactBtn{
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .profile_picture {
@@ -50,25 +58,115 @@
     }
 }
 
-.contact_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: $primary-color;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
 .picture {
     height: 200px;
     width: 200px;
     border-radius: 50%;
     object-fit: cover;
 }
+
+// --------- Filter --------- //
+
+::before, ::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.filter{
+    margin: 20px 100px 0 100px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    gap: 10px;
+    width: 95%;
+    max-width: 1400px; 
+
+    h3{
+        font-size: 1.1em;
+    }
+
+    &_content{
+        position: relative;
+        height: 100%;
+    }
+
+    .dropdown{
+        z-index: 100;
+        position: absolute;
+        border-radius: 5px;
+        overflow: hidden;
+
+        &_content{
+            padding: 0;
+            margin: 0;
+            max-height: 0;
+            transition: max-height .15s ease-in-out;
+        }
+
+        &_content li {
+            position: relative;
+            width: 140px;
+            list-style-type: none;
+            background-color: $primary-color;
+
+            &::before{
+                content: "";
+                position: absolute;
+                top: 0px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                height: 1px;
+                background-color: #fff;
+            }
+
+            button{
+                background-color: transparent;
+                text-align: left;
+                font-size: 0.9em;
+
+                &:hover{
+                    background-color: $secondary-color;
+                    color: #000;
+                }
+            }
+        }
+    }
+
+    &_btn{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $primary-color;
+        font-size: 0.9em;
+
+        &:hover{
+            background-color: $secondary-color;
+            color: #000;
+        }
+    }
+
+    &_btn, .dropdown_content li button{
+        width: 100%;
+        height: 50px;
+        padding: 15px;
+        border: none;
+        outline: none;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .active {
+        max-height: 200px;
+    }
+    
+    .rotate{
+        transform: rotate(180deg);
+    }
+}
+
+
 
 // --------- Media Section --------- //
 .photographer-media{
@@ -82,6 +180,7 @@
     width: 350px;
     height: 350px;
     margin: 40px 0;
+    box-shadow: $shadow;
 
     img, video{
         width: 350px;
@@ -102,12 +201,23 @@
 
         .likes{
             margin: 5px 0;
+
+            .fa-heart{
+                color: $primary-color;
+            }
         }
     }
 }
+
 // --------- Modal & Form --------- //
 #contact_modal {
     display: none;
+    position: fixed;
+    width: 800px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
 }
 
 .modal {
@@ -118,21 +228,28 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 35px;
+    padding: 25px;
     margin: auto;
 
     header {
-        justify-content: space-between;
+        display: flex;
+        flex-wrap: wrap;
         width: 100%;
+        height: auto;
     
         img {
             cursor: pointer;
+            width: 25px;
         }
         
-        h2 {
-            font-size: 64px;
+        h2, h3 {
+            font-size: 2.3em;
             font-weight: normal;
-            text-align: center;
+            margin: 0;
+        }
+
+        h3{
+            margin: 0 0 25px 0;
         }
     }
 }
@@ -145,7 +262,8 @@ form {
     
     label {
         color: #312E2E;
-        font-size: 36px;
+        font-size: 1.5em;
+        margin-bottom: 5px;
     }
 
     div {
@@ -153,13 +271,26 @@ form {
         flex-direction: column;
         width: 100%;
         align-items: self-start;
-        margin-bottom: 26px;
+        margin-bottom: 15px;
     }
 
     input {
         width: 100%;
-        height: 68px;
+        height: 45px;
         border: none;
         border-radius: 5px;
+        font-size: 1.3em;
+        
+        &#message{
+            height: 100px;
+        }
+    }
+
+    .btn{
+        padding: 11px;
+        width: 140px;
+        height: 55px;
+        font-size: 1em;
+        font-weight: 600;
     }
 }

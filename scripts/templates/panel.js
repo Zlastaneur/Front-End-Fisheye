@@ -1,4 +1,4 @@
-class MediaCard{
+class Panel{
     constructor(media){
         this._media = media
     }
