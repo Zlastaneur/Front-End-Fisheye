@@ -8,7 +8,7 @@ class ProfilePage {
 
         this.headerSection = document.querySelector(".photographer-header")
         this.mediaSection = document.querySelector(".photographer-media")
-        this.panelSection = document.querySelector(".panel")
+        this.panelSection = document.querySelector(".infoPanel")
     }
 
     async main(){
@@ -29,6 +29,10 @@ class ProfilePage {
             const mediaTemplate = new MediaCard(media)
             this.mediaSection.appendChild(mediaTemplate.createMediaCard())
         })
+        
+        // Insert photographer's name in Form's header
+        const formPhotographerName = document.querySelector(".photographerName")
+        formPhotographerName.textContent = photographerById.name
 
         // Create info panel
         const panelTemplate = new Panel(photographerById, allMedia)

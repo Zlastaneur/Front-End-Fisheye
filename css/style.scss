@@ -36,6 +36,15 @@ header {
 h1 {
     color: $primary-color;
     margin-right: 100px;
+    cursor: default;
+}
+
+h2, h3{
+    cursor: default;
+}
+
+p{
+    cursor: default;
 }
 
 .logo {

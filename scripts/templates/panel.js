@@ -11,7 +11,7 @@ class Panel{
             return prev + cur.likes
         }, 0)
 
-        panelWrapper.classList.add("panel_content")
+        panelWrapper.classList.add("infoPanel_content")
         
         const panel = 
         `
