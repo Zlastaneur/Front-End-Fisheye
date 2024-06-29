@@ -6,7 +6,6 @@ class Homepage {
 
     async main(){
         const allPhotographers = await this.apiData.getAllPhotographers()
-        console.log(allPhotographers)
 
         allPhotographers.forEach(photographer => {
             const Template = new PhotographerCard(photographer)

@@ -176,50 +176,50 @@ p {
   font-size: 13px;
 }
 
-.photographer-header {
+#photographer-header {
   background-color: #FAFAFA;
   height: 300px;
   margin: 20px 100px;
 }
-.photographer-header .wrapper {
+#photographer-header .wrapper {
   display: flex;
   justify-content: space-between;
   padding: 40px 60px;
 }
-.photographer-header .profile_info {
+#photographer-header .profile_info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0;
 }
-.photographer-header .profile_info .name {
+#photographer-header .profile_info .name {
   font-size: 60px;
   color: #D3573C;
   font-weight: 400;
   margin: 0;
 }
-.photographer-header .profile_info .localisation {
+#photographer-header .profile_info .localisation {
   color: #901c1c;
   font-size: 1.2em;
   font-weight: 400;
   margin: 5px 0 20px 0;
 }
-.photographer-header .profile_info .tagline {
+#photographer-header .profile_info .tagline {
   color: #525252;
   margin: 0;
 }
-.photographer-header .profile_btn {
+#photographer-header .profile_btn {
   display: flex;
   align-items: center;
 }
-.photographer-header .profile_btn .contactBtn {
+#photographer-header .profile_btn .contactBtn {
   padding: 11px;
   width: 170px;
   height: 70px;
   font-size: 1.2em;
   font-weight: bold;
 }
-.photographer-header .profile_picture img {
+#photographer-header .profile_picture img {
   box-shadow: 0rem 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
   height: 200px;
   width: 200px;
@@ -264,7 +264,7 @@ p {
 }
 .filter .dropdown_content li {
   position: relative;
-  width: 140px;
+  width: 150px;
   list-style-type: none;
   background-color: #901c1c;
 }
@@ -274,7 +274,7 @@ p {
   top: 0px;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%;
+  width: 85%;
   height: 1px;
   background-color: #fff;
 }
@@ -314,8 +314,8 @@ p {
   transform: rotate(180deg);
 }
 
-.photographer-media {
-  margin: 30px 100px 100px 100px;
+#photographer-media {
+  margin: 30px 100px 80px 100px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -326,6 +326,7 @@ p {
   height: 350px;
   margin: 40px 0;
   box-shadow: 0rem 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 }
 .mediaCard img, .mediaCard video {
   width: 350px;
@@ -336,6 +337,7 @@ p {
 .mediaCard figcaption {
   display: flex;
   justify-content: space-between;
+  padding: 0 3px;
 }
 .mediaCard figcaption .title {
   color: #901c1c;
@@ -352,7 +354,7 @@ p {
 .infoPanel {
   position: fixed;
   bottom: 0%;
-  right: 5%;
+  right: 3%;
   width: 260px;
   height: 60px;
   background-color: #D3573C;
@@ -475,4 +477,77 @@ p {
 }
 #contact_modal form .formData[data-error-visible=true] .text-control {
   border: 2px solid #901c1c;
+}
+
+#lightbox {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 150;
+}
+#lightbox_modal {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(59, 59, 59, 0.658);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#lightbox_modal button {
+  position: absolute;
+  cursor: pointer;
+  color: #901c1c;
+  background-color: transparent;
+  border: none;
+  font-size: 55px;
+  width: 100px;
+  height: 100px;
+}
+#lightbox_modal .closeBtn {
+  top: 5vh;
+  right: 25vh;
+}
+#lightbox_modal .previousBtn {
+  left: 25vh;
+  height: 150px;
+}
+#lightbox_modal .nextBtn {
+  right: 25vh;
+  height: 150px;
+}
+#lightbox_modal_content {
+  background-color: white;
+  height: 100%;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 55%;
+  max-height: 80vh;
+  box-shadow: 0rem 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  padding: 40px;
+}
+#lightbox_modal_content img, #lightbox_modal_content video {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+}
+#lightbox_modal_content .title {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: start;
+  margin: 10px 0 0 0;
+  color: #901c1c;
+  font-weight: 600;
 }

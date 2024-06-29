@@ -2,7 +2,6 @@
 const filterBtn = document.querySelector(".filter_btn")
 const activeFilterBtn = document.querySelector("#active_filter")
 const allFilters = Array.from(document.querySelectorAll(".dropdown_content li button"))
-console.log(allFilters)
 
 // Open / Close the dropdown menu
 const toggleFilterDropdown = () => {

@@ -6,7 +6,6 @@ class Panel{
 
     createPanel(){
         const panelWrapper = document.createElement("div")
-        console.log(this._media)
         let totalLikes = this._media.reduce(function(prev, cur){
             return prev + cur.likes
         }, 0)

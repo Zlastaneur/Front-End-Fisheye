@@ -1,12 +1,3 @@
-function displayModal() {
-    const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
-}
-
-function closeModal() {
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
-}
 
 //Get all the inputs
 const form = document.querySelector("form")
@@ -15,6 +6,16 @@ let firstName = document.getElementById("firstname")
 let lastName = document.getElementById("lastname")
 let email = document.getElementById("email")
 let message = document.getElementById("message")
+
+function displayFormModal() {
+    const modal = document.getElementById("contact_modal");
+	modal.style.display = "block";
+}
+
+function closeFormModal() {
+    const modal = document.getElementById("contact_modal");
+    modal.style.display = "none";
+}
 
 // Checking if submit btn is clicked
 submitBtn.addEventListener("click", validate)
@@ -115,5 +116,5 @@ function cleanError(e){
 // Reset form at the end
 function resetForm(){
     form.reset()
-    closeModal()
+    closeFormModal()
 }
