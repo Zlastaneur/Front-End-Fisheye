@@ -29,13 +29,13 @@ class Filter{
         filterWrapper.innerHTML = filterContent
 
         setTimeout(() => {
-                const filter = new FilterScript(this._mediaById)
+                const filter = new FilterScript(this._photographerData, this._mediaById)
               
                 filter.toggleFilterDropdown()
                 filter.setActiveFilter()
-                // filter.filterPopularité(this._mediaById, this._photographerData)
-                // filter.filterDate(this._mediaById, this._photographerData)
-                // filter.filterTitre(this._mediaById, this._photographerData)
+                filter.sortByPopularity()
+                filter.sortByTitle()
+                filter.sortByDate()
           }, 25);
 
         return filterWrapper

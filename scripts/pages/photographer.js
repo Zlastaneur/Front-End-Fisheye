@@ -27,11 +27,11 @@ class ProfilePage {
         const filterTemplate = new Filter(photographerById,allMedia)
         this.filterSection.append(filterTemplate.createFilter())
 
-        // Create media cards for each media found with photographer's id
-        allMedia.forEach(media => {
+        // Create media cards for each media found with photographer's id (Now on filterScript)
+       /* allMedia.forEach(media => {
             const mediaTemplate = new MediaCard(media)
             this.mediaSection.appendChild(mediaTemplate.createMediaCard())
-        })
+        })*/
         
         // Insert photographer's name in Form's header
         const formPhotographerName = document.querySelector(".photographerName")

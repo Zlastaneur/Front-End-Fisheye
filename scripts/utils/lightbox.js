@@ -1,5 +1,5 @@
 class LightboxScript{
-    constructor(mediaById, mediaList, photographerById){
+    constructor(mediaById, mediaList){
         this._lightbox = document.querySelector("#lightbox")
         this._lightboxContent = document.querySelector("#lightbox_modal_content")
         this._mediaCard = document.querySelector(`.media_${mediaById.id}`)

@@ -30,13 +30,12 @@ class Lightbox{
             for (let i = 0; i < this._mediaList.length; i++) {
                 const lightbox = new LightboxScript(
                     this._mediaList[i],
-                    this._photographerData
+                    this._mediaList
                 )
-                lightbox.displayLightbox(this._mediaList[i], this._photographerData)
+                lightbox.displayLightbox(this._mediaList[i])
                 lightbox.hideLightbox()
                 lightbox.nextMedia()
                 lightbox.previousMedia()
-                /* lightbox.open / close / next / previous */ 
             }
         }, 25);
         return lightboxWrapper
