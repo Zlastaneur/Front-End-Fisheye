@@ -6,6 +6,7 @@ class ProfilePage {
         this.apiData = new ApiData("./photographers.json")
 
         this.headerSection = document.getElementById("photographer-header")
+        this.filterSection = document.querySelector(".filter")
         this.mediaSection = document.getElementById("photographer-media")
         this.panelSection = document.querySelector(".infoPanel")
         this.lightboxSection = document.querySelector("#lightbox")
@@ -21,6 +22,10 @@ class ProfilePage {
         // Create header template with photographer Data
         const headerTemplate = new ProfileHeader(photographerById)
         this.headerSection.append(headerTemplate.createProfileHeader())
+
+        // Create filters
+        const filterTemplate = new Filter(photographerById,allMedia)
+        this.filterSection.append(filterTemplate.createFilter())
 
         // Create media cards for each media found with photographer's id
         allMedia.forEach(media => {
@@ -44,21 +49,3 @@ class ProfilePage {
 
 const profilePage = new ProfilePage()
 profilePage.main()
-
-        //this.lightboxSection = document.querySelector(".lightbox")
-    /*
-        // Create lightbox
-        const medias = document.querySelectorAll(".mediaCard")
-        let mediaSrc
-        let mediaName
-
-        medias.forEach(media => {
-            media.addEventListener("click", (e) => {
-                mediaSrc = e.target.src
-                mediaName = e.currentTarget.querySelector(".title").innerText
-
-                const lightboxTemplate = new Lightbox(mediaSrc, mediaName)
-                this.lightboxSection.append(lightboxTemplate.createLightbox())
-        })
-        })
-    */

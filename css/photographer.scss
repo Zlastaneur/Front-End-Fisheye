@@ -71,62 +71,67 @@
 }
 
 .filter{
-    margin: 20px 100px 0 100px;
-    display: flex;
-    align-items: center;
-    height: 50px;
-    gap: 10px;
-    width: 95%;
-    max-width: 1400px; 
+    max-width: 1400px;
 
-    h3{
-        font-size: 1.1em;
-        margin-right: 10px;
-    }
+    &Wrapper{
+        margin: 20px 100px 0 100px;
+        display: flex;
+        align-items: center;
+        height: 50px;
+        gap: 10px;
+        width: 95%;
+        max-width: 1400px; 
+    
 
-    &_content{
-        position: relative;
-        height: 100%;
-    }
-
-    .dropdown{
-        z-index: 100;
-        position: absolute;
-        border-radius: 5px;
-        overflow: hidden;
-
-        &_content{
-            padding: 0;
-            margin: 0;
-            max-height: 0;
-            transition: max-height .15s ease-in-out;
+        h3{
+            font-size: 1.1em;
+            margin-right: 10px;
         }
 
-        &_content li {
+        .filter_content{
             position: relative;
-            width: 150px;
-            list-style-type: none;
-            background-color: $primary-color;
+            height: 100%;
+        }
 
-            &::before{
-                content: "";
-                position: absolute;
-                top: 0px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 85%;
-                height: 1px;
-                background-color: #fff;
+        .dropdown{
+            z-index: 100;
+            position: absolute;
+            border-radius: 5px;
+            overflow: hidden;
+
+            &_content{
+                padding: 0;
+                margin: 0;
+                max-height: 0;
+                transition: max-height .15s ease-in-out;
             }
 
-            button{
-                background-color: transparent;
-                text-align: left;
-                font-size: 0.9em;
+            &_content li {
+                position: relative;
+                width: 150px;
+                list-style-type: none;
+                background-color: $primary-color;
 
-                &:hover{
-                    background-color: $secondary-color;
-                    color: #000;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    top: 0px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 85%;
+                    height: 1px;
+                    background-color: #fff;
+                }
+
+                button{
+                    background-color: transparent;
+                    text-align: left;
+                    font-size: 0.9em;
+
+                    &:hover{
+                        background-color: $secondary-color;
+                        color: #000;
+                    }
                 }
             }
         }
