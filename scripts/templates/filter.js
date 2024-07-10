@@ -33,9 +33,7 @@ class Filter{
               
                 filter.toggleFilterDropdown()
                 filter.setActiveFilter()
-                filter.sortByPopularity()
-                filter.sortByTitle()
-                filter.sortByDate()
+                filter.sortMedia()
           }, 25);
 
         return filterWrapper

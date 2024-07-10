@@ -11,6 +11,8 @@ class FilterScript {
 
         this._selectedFilter = this._allFilters.find(filter => filter.textContent == this._activeFilterBtn.textContent)
         this._selectedFilter.style.display = "none"
+
+        this._previousMediaList = [...this._mediaList] // NEW
     }
 
     // Open / Close the dropdown menu
@@ -42,6 +44,15 @@ class FilterScript {
         })
     }
 
+   /* hasMediaListChanged(){ // ---- NEW
+        for (let i = 0; i < this._mediaList.length; i++) {
+            if (this._mediaList[i] !== this._previousMediaList[i]) {
+                return true
+            }
+        }
+        return false
+    } */// ---
+
     sortMedia(){
         switch (this._selectedFilter.textContent){
             case "Popularité":
@@ -56,29 +67,38 @@ class FilterScript {
             default:
                 console.log("Sorting ERROR")
         }
+       // this._previousMediaList = [...this._mediaList] // NEW
     }
 
     sortByPopularity(){
         this._mediaList.sort((a, b) => b.likes - a.likes)
+       // this.hasMediaListChanged()
         this.updateMediaSection(this._mediaList)
+        /*if (this._mediaList == actualMediaList){
+            this.updateMediaSection(this._mediaList)
+        }*/
     }
 
     sortByTitle(){
         this._mediaList.sort((a, b) => a.title.localeCompare(b.title))
+       // this.hasMediaListChanged()
         this.updateMediaSection(this._mediaList)
     }
 
     sortByDate(){
         this._mediaList.sort((a, b) => new Date(b.date) - new Date(a.date))
+       // this.hasMediaListChanged()
         this.updateMediaSection(this._mediaList)
     }
 
     updateMediaSection(mediaList) {
-        this._mediaSection.innerHTML = ""
+       // if (this.hasMediaListChanged()){
+            this._mediaSection.innerHTML = ""
 
-        mediaList.forEach((media, index) => {
-            const mediaTemplate = new MediaCard(media, index, mediaList)
-            this._mediaSection.appendChild(mediaTemplate.createMediaCard())
-        })
+            mediaList.forEach((media, index) => {
+                const mediaTemplate = new MediaCard(media, index, mediaList, this._photographerData)
+                this._mediaSection.appendChild(mediaTemplate.createMediaCard())
+            })
+        //}
     }
 }
