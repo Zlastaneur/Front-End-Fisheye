@@ -1,6 +1,8 @@
 class MediaCard{
-    constructor(media){
+    constructor(media, index, mediaList){
         this._media = media
+        this._index = index
+        this._mediaList = mediaList
     }
 
     createMediaCard(){
@@ -19,6 +21,14 @@ class MediaCard{
             </figcaption>
         `
         cardWrapper.innerHTML = mediaCard
+
+
+        const mediaElement = cardWrapper.querySelector(`.media_${this._media.id}`)
+        mediaElement.addEventListener('click', () => {
+            const lightboxScript = new LightboxScript(this._mediaList)
+            lightboxScript.displayLightbox(this._index)
+        })
+
         return cardWrapper
     }
 }

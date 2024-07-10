@@ -42,7 +42,7 @@ class ProfilePage {
         this.panelSection.append(panelTemplate.createPanel())
 
         // Create lightbox
-        const lightboxTemplate = new Lightbox(photographerById, allMedia)
+        const lightboxTemplate = new Lightbox(allMedia)
         this.lightboxSection.append(lightboxTemplate.createLightbox())
     }
 }

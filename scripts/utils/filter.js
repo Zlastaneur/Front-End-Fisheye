@@ -1,19 +1,21 @@
-class FilterScript{
-
-    constructor(photographerById, mediaById){
+class FilterScript {
+    constructor(photographerById, mediaById) {
         // Get all the inputs
+        this._mediaList = mediaById
+        this._photographerData = photographerById
+
+        this._mediaSection = document.getElementById("photographer-media")
         this._filterBtn = document.querySelector(".filter_btn")
         this._activeFilterBtn = document.querySelector("#active_filter")
         this._allFilters = Array.from(document.querySelectorAll(".dropdown_content li button"))
+
         this._selectedFilter = this._allFilters.find(filter => filter.textContent == this._activeFilterBtn.textContent)
         this._selectedFilter.style.display = "none"
-        this._mediaList = mediaById
-        this._photographerData = photographerById
     }
 
     // Open / Close the dropdown menu
-    toggleFilterDropdown() {
-        this._filterBtn.addEventListener("click", (e)=>{
+    toggleFilterDropdown(){
+        this._filterBtn.addEventListener("click", () => {
             const dropdown = document.querySelector(".dropdown_content")
             dropdown.classList.toggle("active")
             document.querySelector(".fa-chevron-down").classList.toggle("rotate")
@@ -22,87 +24,61 @@ class FilterScript{
     
     setActiveFilter(){
         this._allFilters.forEach(filter => {
-            filter.addEventListener("click", (e) => {
+            filter.addEventListener("click", () => {
                 const filterValue = filter.textContent
                 this._activeFilterBtn.textContent = filterValue
     
-                if (this._selectedFilter) this._selectedFilter.style.display = "block";
+                if (this._selectedFilter) this._selectedFilter.style.display = "block"
     
-                filter.style.display = "none";
-                this._selectedFilter = filter;
-    
+                filter.style.display = "none"
+                this._selectedFilter = filter
+
                 const dropdown = document.querySelector(".dropdown_content")
                 dropdown.classList.toggle("active")
                 document.querySelector(".fa-chevron-down").classList.toggle("rotate")
-                this.sortByPopularity()
-                this.sortByTitle()
-                this.sortByDate()
-                
+
+                this.sortMedia()
             })
         })
     }
-/*
-    sortMedia(){
-        if (selectedFilter.textContent == "Popularité"){
-            this._sortByPopularity()
 
-        } else if (selectedFilter.textContent == "Date"){
-            console.log("date")
-        } else if (selectedFilter.textContent == "Titre"){
-            console.log("titre")
-        } else (console.log("Erreur de tri"))
-    }*/
+    sortMedia(){
+        switch (this._selectedFilter.textContent){
+            case "Popularité":
+                this.sortByPopularity()
+                break
+            case "Date":
+                this.sortByDate()
+                break
+            case "Titre":
+                this.sortByTitle()
+                break
+            default:
+                console.log("Sorting ERROR")
+        }
+    }
 
     sortByPopularity(){
-        if(this._selectedFilter.textContent == "Popularité"){
-            const mediaSection = document.getElementById("photographer-media")
-            
-            this._mediaList.sort((a,b) => (
-                a.likes < b.likes ? 1 : b.likes < a.likes ? -1 : 0
-            ))
-
-            mediaSection.innerHTML = ""
-
-            this._mediaList.forEach(media => {
-                const mediaTemplate = new MediaCard(media)
-                mediaSection.appendChild(mediaTemplate.createMediaCard())
-            })
-        }
+        this._mediaList.sort((a, b) => b.likes - a.likes)
+        this.updateMediaSection(this._mediaList)
     }
 
     sortByTitle(){
-        if(this._selectedFilter.textContent == "Titre"){
-            const mediaSection = document.getElementById("photographer-media")
-            
-            this._mediaList.sort((a,b) => a.title.localeCompare(b.title))
-
-            mediaSection.innerHTML = ""
-
-            this._mediaList.forEach(media => {
-                const mediaTemplate = new MediaCard(media)
-                mediaSection.appendChild(mediaTemplate.createMediaCard())
-            })
-        }
+        this._mediaList.sort((a, b) => a.title.localeCompare(b.title))
+        this.updateMediaSection(this._mediaList)
     }
 
     sortByDate(){
-        if(this._selectedFilter.textContent == "Date"){
-            const mediaSection = document.getElementById("photographer-media")
-            
-            const sorting = this._mediaList.sort((a,b) => {
-                const aDate = new Date(a.date)
-                const bDate = new Date(b.date)
-                return bDate - aDate
-            })
-                
+        this._mediaList.sort((a, b) => new Date(b.date) - new Date(a.date))
+        this.updateMediaSection(this._mediaList)
+    }
 
-            mediaSection.innerHTML = ""
+    updateMediaSection(mediaList) {
+        this._mediaSection.innerHTML = ""
 
-            sorting.forEach(media => {
-                const mediaTemplate = new MediaCard(media)
-                mediaSection.appendChild(mediaTemplate.createMediaCard())
-            })
-        }
+        mediaList.forEach((media, index) => {
+            const mediaTemplate = new MediaCard(media, index, mediaList)
+            this._mediaSection.appendChild(mediaTemplate.createMediaCard())
+        })
     }
 }
-

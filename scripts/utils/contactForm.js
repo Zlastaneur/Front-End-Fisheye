@@ -10,6 +10,7 @@ let message = document.getElementById("message")
 function displayFormModal() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
+    
 }
 
 function closeFormModal() {

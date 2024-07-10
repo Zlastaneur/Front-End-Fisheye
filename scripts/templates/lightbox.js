@@ -1,7 +1,7 @@
 class Lightbox{
-    constructor(photographerById, allMedia){
-        this._photographerData = photographerById
+    constructor(allMedia){
         this._mediaList = allMedia
+        this._currentIndex = 0
     }
 
     createLightbox(){
@@ -25,19 +25,6 @@ class Lightbox{
         `
 
         lightboxWrapper.innerHTML = lightboxContent
-        
-        setTimeout(() => {
-            for (let i = 0; i < this._mediaList.length; i++) {
-                const lightbox = new LightboxScript(
-                    this._mediaList[i],
-                    this._mediaList
-                )
-                lightbox.displayLightbox(this._mediaList[i])
-                lightbox.hideLightbox()
-                lightbox.nextMedia()
-                lightbox.previousMedia()
-            }
-        }, 25);
         return lightboxWrapper
     }
 }
