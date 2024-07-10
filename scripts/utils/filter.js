@@ -82,12 +82,12 @@ class FilterScript {
 
     // Update the media section in the DOM with new media list
     updateMediaSection(mediaList) {
-            this._mediaSection.innerHTML = "" // Clear existing media
+        this._mediaSection.innerHTML = "" // Clear existing media
 
-            // Generate and append media cards based on the updated list
-            mediaList.forEach((media, index) => {
-                const mediaTemplate = new MediaCard(media, index, mediaList, this._photographerData)
-                this._mediaSection.appendChild(mediaTemplate.createMediaCard())
-            })
+        // Generate and append media cards based on the updated list
+        mediaList.forEach((media, index) => {
+            const mediaTemplate = new MediaCard(media, index, mediaList, this._photographerData)
+            this._mediaSection.appendChild(mediaTemplate.createMediaCard())
+        })
     }
 }

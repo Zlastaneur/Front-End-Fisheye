@@ -3,6 +3,8 @@ class Likes{
         this._media = media
         this._likeElement = likeElement
 
+        this._panelElement = document.querySelector(".infoPanel")
+
         this._isLiked = this._media.isLiked || false
     }
 
@@ -20,6 +22,11 @@ class Likes{
 
         const filter = new FilterScript(photographer, mediaList)
         filter.sortMedia()
+
+        this._panelElement.innerHTML = ""
+        
+        const panelTemplate = new Panel(photographer, mediaList)
+        this._panelElement.append(panelTemplate.createPanel())
     }
 
     likeMedia(){
