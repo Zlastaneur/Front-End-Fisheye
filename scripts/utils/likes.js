@@ -15,9 +15,8 @@ class Likes{
         } else {
             this.unlikeMedia()
         }
-
-            this._likeElement.classList.toggle("liked", this._isLiked);
-
+        
+        this.updateLikeUI()
 
         const filter = new FilterScript(photographer, mediaList)
         filter.sortMedia()
@@ -29,6 +28,12 @@ class Likes{
 
     unlikeMedia(){
         this._media.likes --
+    }
+
+    updateLikeUI(){
+        this._likeElement.classList.toggle("liked", this._isLiked)
+        const heartElement = this._likeElement.querySelector("i")
+        heartElement.classList.replace("fa-regular", "fa-solid")
     }
 }
 

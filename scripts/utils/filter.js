@@ -1,9 +1,10 @@
 class FilterScript {
     constructor(photographerById, mediaById) {
-        // Get all the inputs
+        // Initialize with provided data
         this._mediaList = mediaById
         this._photographerData = photographerById
 
+        // DOM elements
         this._mediaSection = document.getElementById("photographer-media")
         this._filterBtn = document.querySelector(".filter_btn")
         this._activeFilterBtn = document.querySelector("#active_filter")
@@ -11,11 +12,12 @@ class FilterScript {
 
         this._selectedFilter = this._allFilters.find(filter => filter.textContent == this._activeFilterBtn.textContent)
         this._selectedFilter.style.display = "none"
-
-        this._previousMediaList = [...this._mediaList] // NEW
+        
+        // Store a copy of the initial media list
+        this._previousMediaList = [...this._mediaList]
     }
 
-    // Open / Close the dropdown menu
+    // Toggle dropdown menu visibility
     toggleFilterDropdown(){
         this._filterBtn.addEventListener("click", () => {
             const dropdown = document.querySelector(".dropdown_content")
@@ -23,7 +25,8 @@ class FilterScript {
             document.querySelector(".fa-chevron-down").classList.toggle("rotate")
         })
     }
-    
+
+    // Set active filter based on user selection
     setActiveFilter(){
         this._allFilters.forEach(filter => {
             filter.addEventListener("click", () => {
@@ -35,6 +38,7 @@ class FilterScript {
                 filter.style.display = "none"
                 this._selectedFilter = filter
 
+                // Toggle dropdown visibility
                 const dropdown = document.querySelector(".dropdown_content")
                 dropdown.classList.toggle("active")
                 document.querySelector(".fa-chevron-down").classList.toggle("rotate")
@@ -44,15 +48,7 @@ class FilterScript {
         })
     }
 
-   /* hasMediaListChanged(){ // ---- NEW
-        for (let i = 0; i < this._mediaList.length; i++) {
-            if (this._mediaList[i] !== this._previousMediaList[i]) {
-                return true
-            }
-        }
-        return false
-    } */// ---
-
+    // Sort media based on the selected filter
     sortMedia(){
         switch (this._selectedFilter.textContent){
             case "Popularité":
@@ -67,38 +63,31 @@ class FilterScript {
             default:
                 console.log("Sorting ERROR")
         }
-       // this._previousMediaList = [...this._mediaList] // NEW
     }
 
     sortByPopularity(){
         this._mediaList.sort((a, b) => b.likes - a.likes)
-       // this.hasMediaListChanged()
         this.updateMediaSection(this._mediaList)
-        /*if (this._mediaList == actualMediaList){
-            this.updateMediaSection(this._mediaList)
-        }*/
     }
 
     sortByTitle(){
         this._mediaList.sort((a, b) => a.title.localeCompare(b.title))
-       // this.hasMediaListChanged()
         this.updateMediaSection(this._mediaList)
     }
 
     sortByDate(){
         this._mediaList.sort((a, b) => new Date(b.date) - new Date(a.date))
-       // this.hasMediaListChanged()
         this.updateMediaSection(this._mediaList)
     }
 
+    // Update the media section in the DOM with new media list
     updateMediaSection(mediaList) {
-       // if (this.hasMediaListChanged()){
-            this._mediaSection.innerHTML = ""
+            this._mediaSection.innerHTML = "" // Clear existing media
 
+            // Generate and append media cards based on the updated list
             mediaList.forEach((media, index) => {
                 const mediaTemplate = new MediaCard(media, index, mediaList, this._photographerData)
                 this._mediaSection.appendChild(mediaTemplate.createMediaCard())
             })
-        //}
     }
 }

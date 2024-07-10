@@ -352,6 +352,7 @@ p {
 }
 .mediaCard figcaption .likes .fa-heart {
   color: #901c1c;
+  cursor: pointer;
 }
 
 .infoPanel {

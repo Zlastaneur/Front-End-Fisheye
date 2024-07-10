@@ -18,7 +18,9 @@ class MediaCard{
             
             <figcaption>
                 <p class="title"> ${this._media.title}</p>
-                <p class="likes ${this._media.isLiked ? 'liked' : ''}">${this._media.likes} <i class="fa-solid fa-heart"></i></p>
+                ${this._media.isLiked 
+                ? `<p class="likes liked">${this._media.likes} <i class="fa-solid fa-heart"></i></p>`
+                : `<p class="likes">${this._media.likes} <i class="fa-regular fa-heart"></i></p>`}
             </figcaption>
         `
         cardWrapper.innerHTML = mediaCard
