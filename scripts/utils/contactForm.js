@@ -1,4 +1,8 @@
 
+//DOM elements
+const headerDOM = document.querySelector("header")
+const mainDOM = document.querySelector("#main")
+
 //Get all the inputs
 const form = document.querySelector("form")
 const submitBtn = document.querySelector(".sendBtn")
@@ -10,12 +14,17 @@ let message = document.getElementById("message")
 function displayFormModal() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
-    
+
+    headerDOM.toggleAttribute("inert")
+    mainDOM.toggleAttribute("inert")
 }
 
 function closeFormModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
+
+    headerDOM.removeAttribute("inert")
+    mainDOM.removeAttribute("inert")
 }
 
 // Checking if submit btn is clicked
@@ -26,7 +35,7 @@ function validate(e){
     e.preventDefault()
     
     if (firstNameValidation() && lastNameValidation() && emailValidation() && messageValidation()){
-        console.log(`Prénom : ${firstName.value} | Nom : ${lastName.value} | Message : ${message.value}`)
+        console.log(`Prénom : ${firstName.value} | Nom : ${lastName.value} | E-mail : ${email.value} | Message : ${message.value}`)
         resetForm()
 
     } else {

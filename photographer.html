@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -11,45 +11,53 @@
   </head>
   <body>
     <header>
-      <a href="index.html" alt="Fisheye Home page"><img src="assets/images/logo.png" class="logo" alt="fisheye logo"/></a>
+      <a href="index.html" alt="Fisheye Home page"><img src="assets/images/logo.png" class="logo"/></a>
     </header>
     <main id="main">
-      <section id="photographer-header">
+      <section id="photographer-header" role="region" aria-label="En-tête du photographe">
       </section>
-      <div class="filter">
+      <div class="filter" role="region" aria-label="Filtres">
       </div>
-      <section id="photographer-media"></section>
-      <div class="infoPanel"></div>
+      <section id="photographer-media" role="region" aria-label="Médias du photographe">
+      </section>
+      <div class="infoPanel" role="region" aria-label="Panneau d'informations">
+      </div>
     </main>
     <div id="lightbox"></div>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeFormModal()" />
-          <h3 class="photographerName">placeholder</h3>
-        </header>
-				<form method="get" onsubmit="return validate();">
-					<div class="formData">
-						<label for="firstname">Prénom</label>
-						<input type="text" id="firstname" name="firstname" class="text-control"/>
-					</div>
-          <div class="formData">
-						<label for="lastname">Nom</label>
-						<input type="text" id="lastname" name="lastname" class="text-control"/>
-					</div>
-          <div class="formData">
-						<label for="email">Email</label>
-						<input type="email" id="email" name="email" class="text-control"/>
-					</div>
-          <div class="formData">
-						<label for="message">Votre message</label>
-						<textarea id="message" name="message" class="text-control" rows="4"></textarea>
-					</div>
-          <button type="submit" class="sendBtn btn">Envoyer</button>
-				</form>
-			</div>
-		</div>
+      <div id="contact_modal"  role="dialog"  aria-label="Formulaire de contact" aria-labelledby="contact_modal_title">
+        <div class="contact_modal_wrapper">
+          <div class="contact_modal_content" tabindex="0">
+            <header>
+              <h2 class="photographerName" id="contact_modal_title">Contactez-moi</h2>
+              <img src="assets/icons/close.svg" onclick="closeFormModal()" tabindex="0" alt="Fermer le formulaire"/>
+            </header>
+            <form class="contact_form" method="get" onsubmit="return validate();">
+              <div class="formData">
+                <label for="firstname">Prénom</label>
+                <input type="text" id="firstname" name="firstname" class="text-control" aria-required="true" aria-describedby="firstname_desc"/>
+                <span id="firstname_desc" class="sr-only">Entrez votre prénom</span>
+              </div>
+              <div class="formData">
+                <label for="lastname">Nom</label>
+                <input type="text" id="lastname" name="lastname" class="text-control" aria-required="true" aria-describedby="lastname_desc"/>
+                <span id="lastname_desc" class="sr-only">Entrez votre nom</span>
+              </div>
+              <div class="formData">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="text-control" aria-required="true" aria-describedby="email_desc"/>
+                <span id="email_desc" class="sr-only">Entrez votre adresse email</span>
+              </div>
+              <div class="formData">
+                <label for="message">Votre message</label>
+                <textarea id="message" name="message" class="text-control" rows="4" aria-required="true" aria-describedby="message_desc"></textarea>
+                <span id="message_desc" class="sr-only">Entrez votre message</span>
+              </div>
+              <button type="submit" class="sendBtn btn">Envoyer</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
     <!--API-->
     <script src="scripts/api/Api.js"></script>
     <!--Templates-->

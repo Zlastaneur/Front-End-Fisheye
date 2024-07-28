@@ -10,17 +10,17 @@ class Filter{
         
         const filterContent = 
         `
-            <h3>Trier par</h3>
+            <label tabindex="0" for="dropdown_content">Trier par</label>
             <div class="filter_content">
                 <div class="dropdown">
-                <button class="filter_btn">
+                <button class="filter_btn" tabindex="0" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="active_filter">
                 <span id="active_filter">Popularité</span>
-                <span><i class="fa-solid fa-chevron-down"></i></span>
+                <span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span>
                 </button>
-                <ul class="dropdown_content">
-                    <li><button>Popularité</button></li>
-                    <li><button>Date</button></li>
-                    <li><button>Titre</button></li>
+                <ul id="dropdown_content" class="dropdown_content" role="listbox" aria-labelledby="active_filter">
+                    <li><button role="listbox" aria-selected="true" tabindex="0">Popularité</button></li>
+                    <li><button role="listbox" aria-selected="false" tabindex="0">Date</button></li>
+                    <li><button role="listbox" aria-selected="false" tabindex="0">Titre</button></li>
                 </ul>
             </div>
         </div>

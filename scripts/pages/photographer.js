@@ -1,10 +1,13 @@
 class ProfilePage {
     constructor() {
+        // Get photographer ID from URL
         const id = new URL(window.location.href).searchParams.get("id")
         this.id = parseInt(id)
 
+        // Initialize API data object
         this.apiData = new ApiData("./photographers.json")
 
+        // DOM elements
         this.headerSection = document.getElementById("photographer-header")
         this.filterSection = document.querySelector(".filter")
         this.mediaSection = document.getElementById("photographer-media")
@@ -35,7 +38,7 @@ class ProfilePage {
         
         // Insert photographer's name in Form's header
         const formPhotographerName = document.querySelector(".photographerName")
-        formPhotographerName.textContent = photographerById.name
+        formPhotographerName.innerHTML = "Contactez-moi" + `<br>` + `${photographerById.name}`
 
         // Create info panel
         const panelTemplate = new Panel(photographerById, allMedia)

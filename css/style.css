@@ -31,10 +31,9 @@ h1 {
   cursor: default;
 }
 
-h2, h3 {
-  cursor: default;
-}
-
+/*h2, h3{
+    cursor: default;
+}*/
 p {
   cursor: default;
 }
@@ -65,6 +64,7 @@ p {
   font-size: 36px;
   font-weight: 400;
   margin: 20px 0 0 0;
+  cursor: pointer;
 }
 .photographer_section article img {
   height: 200px;
@@ -120,10 +120,9 @@ h1 {
   cursor: default;
 }
 
-h2, h3 {
-  cursor: default;
-}
-
+/*h2, h3{
+    cursor: default;
+}*/
 p {
   cursor: default;
 }
@@ -154,6 +153,7 @@ p {
   font-size: 36px;
   font-weight: 400;
   margin: 20px 0 0 0;
+  cursor: pointer;
 }
 .photographer_section article img {
   height: 200px;
@@ -174,6 +174,12 @@ p {
   margin: 0;
   color: #525252;
   font-size: 13px;
+}
+
+::before, ::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 #photographer-header {
@@ -225,12 +231,6 @@ p {
   width: 200px;
   border-radius: 50%;
   object-fit: cover;
-}
-
-::before, ::after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
 }
 
 .filter {
@@ -297,16 +297,11 @@ p {
   background-color: #901c1c;
   font-size: 0.9em;
 }
-.filter_btn:hover {
-  background-color: #D3573C;
-  color: #000;
-}
 .filter_btn, .filter .dropdown_content li button {
   width: 100%;
   height: 50px;
   padding: 15px;
   border: none;
-  outline: none;
   color: #fff;
   cursor: pointer;
 }
@@ -383,59 +378,77 @@ p {
 #contact_modal {
   display: none;
   position: fixed;
-  width: 800px;
+  width: 100%;
+  height: 100vh;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  z-index: 150;
 }
-#contact_modal .modal {
+#contact_modal .contact_modal_wrapper {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(59, 59, 59, 0.658);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#contact_modal .contact_modal_content {
   border-radius: 5px;
   background-color: #D3573C;
-  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 25px;
   margin: auto;
+  width: 450px;
 }
 #contact_modal header {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   height: auto;
+  margin-bottom: 20px;
 }
 #contact_modal header img {
   cursor: pointer;
   width: 25px;
 }
-#contact_modal header h2, #contact_modal header h3 {
+#contact_modal header h2 {
   font-size: 2.3em;
   font-weight: normal;
   margin: 0;
+  text-align: left;
 }
 #contact_modal header h3 {
   margin: 0 0 25px 0;
 }
-#contact_modal form {
+#contact_modal .contact_form {
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: flex-start;
 }
-#contact_modal form label {
+#contact_modal .contact_form .sendBtn {
+  background-color: #901c1c;
+  color: white;
+}
+#contact_modal .contact_form label {
   color: #312E2E;
   font-size: 1.5em;
   margin-bottom: 5px;
 }
-#contact_modal form div {
+#contact_modal .contact_form div {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: self-start;
   margin-bottom: 15px;
 }
-#contact_modal form input, #contact_modal form textarea {
+#contact_modal .contact_form input, #contact_modal .contact_form textarea {
   width: 100%;
   height: 45px;
   border: none;
@@ -444,27 +457,27 @@ p {
   box-sizing: border-box;
   padding: 10px;
 }
-#contact_modal form input:focus, #contact_modal form textarea:focus {
+#contact_modal .contact_form input:focus, #contact_modal .contact_form textarea:focus {
   outline: none;
 }
-#contact_modal form textarea {
+#contact_modal .contact_form textarea {
   height: auto;
   font-family: "DM Sans", sans-serif;
 }
-#contact_modal form .btn {
+#contact_modal .contact_form .btn {
   padding: 11px;
   width: 140px;
   height: 55px;
   font-size: 1em;
   font-weight: 600;
 }
-#contact_modal form .formData {
+#contact_modal .contact_form .formData {
   height: 90px;
 }
-#contact_modal form .formData:last-of-type {
+#contact_modal .contact_form .formData:last-of-type {
   height: auto;
 }
-#contact_modal form .formData[data-error]::after {
+#contact_modal .contact_form .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.8em;
   color: black;
@@ -476,10 +489,10 @@ p {
   opacity: 0;
   transition: 0.3s;
 }
-#contact_modal form .formData[data-error-visible=true]::after {
+#contact_modal .contact_form .formData[data-error-visible=true]::after {
   opacity: 1;
 }
-#contact_modal form .formData[data-error-visible=true] .text-control {
+#contact_modal .contact_form .formData[data-error-visible=true] .text-control {
   border: 2px solid #901c1c;
 }
 

@@ -1,5 +1,0 @@
-class MediaFactory{
-    constructor(data){
-
-    }
-}
